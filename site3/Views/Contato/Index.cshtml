@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewBag.Title = "Contato";
+}
+
+<form method="post" action="/contato/recebercontato">
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome</label>
+        <input type="text" name="Nome" value="@ViewBag.Contato.Nome" class="form-control" id="Nome" placeholder="Digite o seu nome">
+        @Html.ValidationMessage("nome")
+    </div>
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="text" name="Email" value="@ViewBag.Contato.Email" class="form-control" id="Email" placeholder="Digite o seu Email">
+        @Html.ValidationMessage("email")
+    </div>
+    <div class="mb-3">
+        <label for="Assunto" class="form-label">Assunto</label>
+        <input type="text" name="Assunto" value="@ViewBag.Contato.Assunto" class="form-control" id="Assunto" placeholder="Digite o seu Assunto">
+        @Html.ValidationMessage("assunto")
+    </div>
+    <div class="mb-3">
+        <label for="Mensagem" class="form-label">Mensagem</label>
+        <textarea name="Mensagem" class="form-control" id="Mensagem">@ViewBag.Contato.Mensagem</textarea>
+        @Html.ValidationMessage("mensagem")
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+@ViewBag.Mensagem

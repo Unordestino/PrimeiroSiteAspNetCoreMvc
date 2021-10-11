@@ -1,0 +1,44 @@
+﻿@model site3.Models.Palavra
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewBag.Title = "Palavra - Cadastrar";
+}
+
+
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome</label>
+        <input type="text" name="Nome" value="@Model.Nome" class="form-control" id="Nome" placeholder="Digite o seu nome">
+        @Html.ValidationMessage("nome")
+    </div>
+    <div class="mb-3">
+        <label for="nivel" class="form-label">Nivel</label>
+        <select name="nivel" class="form-control">
+            @foreach (var  nivel in ViewBag.Nivel)
+            {
+                if (nivel.Id == Model.Nivel)
+                {
+                    <option value="@nivel.Id" selected>@nivel.Nome</option>
+                }
+                else
+                {
+                    <option value="@nivel.Id">@nivel.Nome</option>
+                }
+
+            }
+        </select>
+
+        <!---<input type="text" name="nivel" value="@Model.Nivel" class="form-control" id="nivel" placeholder="Digite o nivel: 1 - Fácil 2 - Médio 3 - Difícil">-->
+        @Html.ValidationMessage("nivel")
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+
+
+
